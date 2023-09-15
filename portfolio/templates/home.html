@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% load static %}
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+<header class="row btn-light">
+    <div class="rounded-0 col-md-4">
+        <img src="{% static 'portfolio/dantegod.jpg' %}" alt="" width="390" height="350">
+    </div>
+    <div class="col-md-8 my-auto" style="font-family: 'Source Code Pro', monospace;">
+        <h1>I am <strong>Steven Briones</strong></h1>
+        <h3>After this level full stack junior</h3>
+        <p>Feliz de no ser reguetonero</p>
+        <a class="btn btn-primay btn-lg " style="-webkit-text-fill-color: #fff;border-color: #484141; font-family: 'Source Code Pro', monospace;" href="{% static 'portfolio/formulario.pdf'%}" target="-blank">
+            Donwload CV </a>
+    </div>
+</header>
+<div class="row my-4 text-center" style="font-family: 'Source Code Pro', monospace;">
+    <h1>Nice project bro </h1>
+    <p>ayuwoki eres ere ayuwoki ayuwoki ere</p>
+    {% for project in projects %}
+        <div class="col -md-4 p-4">
+            <div class="card card-project text-center"  style="background-color: #ffffff;font-family: 'Source Code Pro', monospace;">
+                <h2>{{project.title}}</h2>
+                <p>{{project.description}}</p>
+                <img src ="{{project.image.url}}" alt="{{project.title}}" class="card-img-top">
+                <br> 
+                {% if project.url %}
+                <a href=" {{project.url}}" class="btn btn-light rounded-0 btn-sm">{{project.url}}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% endblock %}
+</div>

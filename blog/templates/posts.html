@@ -1,0 +1,16 @@
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1 style="font-family: 'Source Code Pro', monospace;">Posts hechos de "blog"</h1>
+
+{% for post in posts %}
+<Div style="font-family: 'Source Code Pro', monospace;">
+    <h2>{{post.title}}</h2>
+    <p>{{post.description|safe|truncatechars:100}}</p>
+    <p>{{post.date|date:'M d Y' |upper}}</p>
+    <img src="{{post.image.url}}" alt="{{post.title}}" width="300" height="500">
+    <a href="{% url 'blog:post_detail' post.id %}">Detalle</a>
+</Div>
+{% endfor %}
+{% endblock %}

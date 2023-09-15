@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<Div class="card card-project text-center " style=" background-color: dimgrey; color: #fff; font-family: 'Source Code Pro', monospace;">
+<h1>Post</h1>
+<h2>{{post.title}}</h2>
+<h3>{{post.date}}</h3>
+<p>{{post.description|safe}}</p>
+<img class="card-img-top" src="{{post.image.url}}" alt="{{post.title}}">
+</Div>
+{% endblock%}
